@@ -26,7 +26,7 @@ export const fetchGenrePageData = createAsyncThunk(
           );
           const data = await response.json();
           animeData.push(...data.data);
-          await new Promise((resolve) => setTimeout(resolve, 500)); // 5-second delay
+          await new Promise((resolve) => setTimeout(resolve, 500)); // 0.5-second delay
         }
         /* eslint-enable */
         return { genreData: genreData.data, animeData };
