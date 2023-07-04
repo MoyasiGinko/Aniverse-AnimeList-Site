@@ -7,6 +7,7 @@ import MyProfile from './components/myProfile';
 // import GenreList from './components/Genres';
 import GenrePage from './components/GenrePage';
 import HomePage from './components/Genre';
+import DetailsPage from './components/Details';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/genres/:genreId" element={<GenrePage />} />
+        <Route path="/anime/:animeId" element={<DetailsPage />} />
         <Route path="/Animes" element={<Animes />} />
         <Route path="/Rockets" element={<Rockets />} />
         <Route path="/Missions" element={<Missions />} />

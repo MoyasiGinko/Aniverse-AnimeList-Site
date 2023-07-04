@@ -4,6 +4,7 @@ import missionsReducer from './features/Missions/missionsSlice';
 import animesReducer from './features/Animes/animesSlice';
 import genreReducer from './features/Genres/genreSlice';
 import genrepageReducer from './features/Genres/pageSlice';
+import detailsReducer from './features/Details/detailsSlice';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     animes: animesReducer,
     genre: genreReducer,
     genrespage: genrepageReducer,
+    details: detailsReducer,
   },
 });
 

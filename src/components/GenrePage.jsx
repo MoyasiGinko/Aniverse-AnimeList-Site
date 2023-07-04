@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGenrePageData } from '../redux/features/Genres/pageSlice';
 
@@ -28,7 +28,9 @@ const GenrePage = () => {
       return [];
     }
 
-    return animeData.filter((anime) => anime.genres.some((g) => g.mal_id === Number(genreId)));
+    return animeData.filter((anime) =>
+      anime.genres.some((g) => g.mal_id === Number(genreId))
+    );
   }, [genreData, animeData, genreId]);
 
   if (isLoading) {
@@ -40,12 +42,15 @@ const GenrePage = () => {
   return (
     <div>
       <h1>
-        {genreData.find((genre) => genre.mal_id === Number(genreId))?.name || 'Unknown'}
+        {genreData.find((genre) => genre.mal_id === Number(genreId))?.name ||
+          'Unknown'}
         Anime
       </h1>
       <ul>
         {genreAnimes.map((anime) => (
-          <li key={anime.mal_id}>{anime.title}</li>
+          <li key={anime.mal_id}>
+            <Link to={`/anime/${anime.mal_id}`}>{anime.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
