@@ -4,9 +4,12 @@ export const fetchGenreData = createAsyncThunk(
   'genre/fetchGenreData',
   async () => {
     try {
-      const response = await fetch('https://api.jikan.moe/v4/genres/anime');
-      const data = await response.json();
-      return data.data;
+      const genreResponse = await fetch(
+        'https://api.jikan.moe/v4/genres/anime',
+      );
+      const genreData = await genreResponse.json();
+      localStorage.setItem('genreData', JSON.stringify(genreData.data));
+      return genreData.data;
     } catch (error) {
       console.log('Error fetching genre data:', error);
       throw error;
@@ -19,7 +22,10 @@ const genreSlice = createSlice({
   initialState: [],
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchGenreData.fulfilled, (state, action) => action.payload);
+    builder.addCase(
+      fetchGenreData.fulfilled,
+      (state, action) => action.payload,
+    );
   },
 });
 

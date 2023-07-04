@@ -10,7 +10,12 @@ const HomePage = () => {
   const error = useSelector((state) => state.error);
 
   useEffect(() => {
-    dispatch(fetchGenreData());
+    const storedGenreData = JSON.parse(localStorage.getItem('genreData'));
+    if (storedGenreData && storedGenreData.length > 0) {
+      dispatch(fetchGenreData.fulfilled(storedGenreData));
+    } else {
+      dispatch(fetchGenreData());
+    }
   }, [dispatch]);
 
   if (isLoading) {

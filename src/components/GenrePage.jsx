@@ -1,42 +1,34 @@
 import React, { useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchGenrePageData,
-  fetchGenreDataFromLocalStorage,
-} from '../redux/features/Genres/pageSlice';
+import { fetchGenrePageData } from '../redux/features/Genres/pageSlice';
 
 const GenrePage = () => {
   const { genreId } = useParams();
   const dispatch = useDispatch();
   const { genreData, animeData, isLoading } = useSelector(
-    (state) => state.genrespage
+    (state) => state.genrespage,
   );
 
   useEffect(() => {
     const fetchGenreData = async () => {
-      if (animeData.length === 0) {
-        // Fetch anime data if it is not available in the Redux store
+      if (animeData.length === 0 || genreData.length === 0) {
+        // Fetch genre and anime data if they are not available in the Redux store
         await dispatch(fetchGenrePageData());
-      } else {
-        // Fetch genre data from local storage
-        await dispatch(fetchGenreDataFromLocalStorage());
       }
     };
 
     fetchGenreData();
-  }, [dispatch]);
+  }, [dispatch, animeData.length, genreData.length]);
 
   const filterGenreAnimes = useCallback(() => {
     const genre = genreData.find((genre) => genre.mal_id === Number(genreId));
 
-    if (!genre) {
+    if (!genre || !animeData) {
       return [];
     }
 
-    return animeData.filter((anime) =>
-      anime.genres.some((g) => g.mal_id === genre.mal_id)
-    );
+    return animeData.filter((anime) => anime.genres.some((g) => g.mal_id === Number(genreId)));
   }, [genreData, animeData, genreId]);
 
   if (isLoading) {

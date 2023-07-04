@@ -1,66 +1,49 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const getStoredAnimeData = () => {
+  const storedAnimeData = localStorage.getItem('animeData');
+  return storedAnimeData ? JSON.parse(storedAnimeData) : [];
+};
+
 export const fetchGenrePageData = createAsyncThunk(
   'genrespage/fetchGenrePageData',
   async () => {
     try {
-      let animeData = JSON.parse(localStorage.getItem('animeData')) || [];
-      let page = Math.floor(animeData.length / 100) + 1; // Calculate the next page to fetch
+      const storedAnimeData = getStoredAnimeData();
 
-      const fetchAnimeData = async () => {
-        const response = await fetch(
-          `https://api.jikan.moe/v4/anime?page=${page}`
+      if (storedAnimeData.length === 0) {
+        const genreResponse = await fetch(
+          'https://api.jikan.moe/v4/genres/anime',
         );
-        const data = await response.json();
+        const genreData = await genreResponse.json();
 
-        if (data.data && data.data.length > 0) {
-          animeData = [...animeData, ...data.data];
-          page++;
-          await fetchAnimeData(); // Fetch the next page
+        const totalPages = 5; // Number of pages to fetch
+        const animeData = [];
+        /* eslint-disable  */
+        for (let page = 1; page <= totalPages; page++) {
+          const response = await fetch(
+            `https://api.jikan.moe/v4/top/anime?page=${page}`,
+          );
+          const data = await response.json();
+          animeData.push(...data.data);
+          await new Promise((resolve) => setTimeout(resolve, 500)); // 5-second delay
         }
-      };
-
-      await fetchAnimeData();
-
-      localStorage.setItem('animeData', JSON.stringify(animeData));
-
-      const genreResponse = await fetch(
-        'https://api.jikan.moe/v4/genres/anime'
-      );
-      const genreData = await genreResponse.json();
-
-      return { genreData: genreData.data, animeData };
+        /* eslint-enable */
+        return { genreData: genreData.data, animeData };
+      }
+      return { genreData: [], animeData: storedAnimeData };
     } catch (error) {
       console.log('Error fetching genre and anime data:', error);
       throw error;
     }
-  }
-);
-
-export const fetchGenreDataFromLocalStorage = createAsyncThunk(
-  'genrespage/fetchGenreDataFromLocalStorage',
-  async () => {
-    try {
-      const animeData = JSON.parse(localStorage.getItem('animeData')) || [];
-
-      const genreResponse = await fetch(
-        'https://api.jikan.moe/v4/genres/anime'
-      );
-      const genreData = await genreResponse.json();
-
-      return { genreData: genreData.data, animeData };
-    } catch (error) {
-      console.log('Error fetching genre data from local storage:', error);
-      throw error;
-    }
-  }
+  },
 );
 
 const genrepageSlice = createSlice({
   name: 'genrepage',
   initialState: {
     genreData: [],
-    animeData: [],
+    animeData: getStoredAnimeData(),
     isLoading: true,
   },
   reducers: {},
@@ -76,14 +59,6 @@ const genrepageSlice = createSlice({
     builder.addCase(fetchGenrePageData.rejected, (state) => {
       state.isLoading = false;
     });
-    builder.addCase(
-      fetchGenreDataFromLocalStorage.fulfilled,
-      (state, action) => {
-        state.genreData = action.payload.genreData;
-        state.animeData = action.payload.animeData;
-        state.isLoading = false;
-      }
-    );
   },
 });
 
