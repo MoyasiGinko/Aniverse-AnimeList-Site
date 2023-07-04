@@ -40,7 +40,7 @@ const GenrePage = () => {
   return (
     <div>
       <h1>
-        {genreAnimes.length > 0 ? genreAnimes[0].genres[0].name : 'Genre'}
+        {genreData.find((genre) => genre.mal_id === Number(genreId))?.name || 'Unknown'}
         Anime
       </h1>
       <ul>
