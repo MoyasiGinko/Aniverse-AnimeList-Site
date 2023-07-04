@@ -3,7 +3,7 @@ import rocketsReducer from './features/Rockets/rocketSlice';
 import missionsReducer from './features/Missions/missionsSlice';
 import animesReducer from './features/Animes/animesSlice';
 import genreReducer from './features/Genres/genreSlice';
-import genrepageReducer from './features/Genres/genrePageSlice';
+import genrepageReducer from './features/Genres/pageSlice';
 
 const store = configureStore({
   reducer: {
