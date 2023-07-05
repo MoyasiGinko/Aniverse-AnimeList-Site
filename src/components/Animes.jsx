@@ -4,15 +4,22 @@ import {
   fetchAnimes,
   reserveAnime,
   cancelReservation,
+  fetchNextPage,
+  fetchPreviousPage,
+  fetchFirstPage,
 } from '../redux/features/Animes/animesSlice';
 
 const Animes = () => {
   const dispatch = useDispatch();
-  const { animes, status, error } = useSelector((state) => state.animes);
+  const {
+    animes, currentPage, status, error,
+  } = useSelector(
+    (state) => state.animes,
+  );
 
   useEffect(() => {
-    dispatch(fetchAnimes());
-  }, [dispatch]);
+    dispatch(fetchAnimes(currentPage));
+  }, [dispatch, currentPage]);
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -40,33 +47,53 @@ const Animes = () => {
     return reserved === 'true';
   };
 
+  const handleNextPage = () => {
+    dispatch(fetchNextPage());
+  };
+
+  const handlePreviousPage = () => {
+    dispatch(fetchPreviousPage());
+  };
+
+  const handleFirstPage = () => {
+    dispatch(fetchFirstPage());
+  };
+
   return (
     <div className="all-animes">
       {animes.map((anime) => (
-        <div className="anime" key={anime.id}>
-          <img className="animeImage" src={anime.photo} alt={anime.name} />
+        <div className="anime" key={anime.mal_id}>
+          <img
+            className="animeImage"
+            src={anime.images?.jpg?.image_url}
+            alt={anime.title}
+          />
           <div className="data">
             <div className="wrapper">
-              <h2 className="name">{anime.name}</h2>
-              {getReservationStatus(anime.id) ? (
+              <h2 className="name">{anime.title}</h2>
+              {getReservationStatus(anime.mal_id) ? (
                 <span className="anime-reserved">Reserved</span>
               ) : (
                 <></>
               )}
             </div>
             <div className="description">
-              <p>{anime.description}</p>
+              <p>{anime.synopsis}</p>
               <p>
                 ID:
-                {anime.id}
+                {anime.mal_id}
+              </p>
+              <p>
+                Episodes:
+                {anime.episodes}
               </p>
             </div>
-            {getReservationStatus(anime.id) ? (
+            {getReservationStatus(anime.mal_id) ? (
               <>
                 <button
                   type="button"
                   className="anime-cancel-btn"
-                  onClick={() => handleCancelReservation(anime.id)}
+                  onClick={() => handleCancelReservation(anime.mal_id)}
                 >
                   Cancel Reservation
                 </button>
@@ -76,7 +103,7 @@ const Animes = () => {
                 type="button"
                 className="anime-reserve-btn"
                 data-testid="cancel-reservation-button"
-                onClick={() => handleReserveAnime(anime.id)}
+                onClick={() => handleReserveAnime(anime.mal_id)}
               >
                 Reserve Anime
               </button>
@@ -84,6 +111,22 @@ const Animes = () => {
           </div>
         </div>
       ))}
+      <div className="pagination-buttons">
+        <button type="button" onClick={handleFirstPage}>
+          Go to Page 1
+        </button>
+        <button
+          type="button"
+          className="prev-button"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button type="button" className="next-button" onClick={handleNextPage}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };
