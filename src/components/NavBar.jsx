@@ -1,5 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
+const handleMyProfileClick = () => {
+  window.location.load();
+};
+
 const NavBar = () => (
   <header className="header">
     <div className="logoDiv">
@@ -13,14 +17,8 @@ const NavBar = () => (
       <NavLink to="/Animes" activeclassname="active">
         Animes
       </NavLink>
-      <NavLink to="/Rockets" activeclassname="active">
-        Rockets
-      </NavLink>
-      <NavLink to="/Missions" activeclassname="active">
-        Missions
-      </NavLink>
       <div className="line" />
-      <NavLink to="/MyProfile" activeclassname="active">
+      <NavLink to="/MyProfile" activeclassname="active" onClick={handleMyProfileClick}>
         MyProfile
       </NavLink>
     </nav>
