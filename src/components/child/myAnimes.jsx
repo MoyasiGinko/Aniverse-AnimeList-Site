@@ -7,20 +7,28 @@ import {
 
 const MyAnimes = () => {
   const dispatch = useDispatch();
-  const { animes, status } = useSelector((state) => state.animes);
+  const { animes, currentPage, status } = useSelector((state) => state.animes);
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchAnimes());
+      dispatch(fetchAnimes(currentPage));
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, currentPage]);
 
   const handleCancelReservation = (animeId) => {
     localStorage.removeItem(`reserved_${animeId}`);
     dispatch(cancelReservation(animeId));
   };
 
-  const reservedAnimes = animes.filter((anime) => anime.reserved);
+  const reservedAnimes = animes.filter((anime) => {
+    const reservedKey = `reserved_${anime.mal_id}`;
+    const reservedValue = localStorage.getItem(reservedKey);
+    return reservedValue === 'true';
+  });
+
+  console.log('animes:', animes);
+  console.log('status:', status);
+  console.log('reservedAnimes:', reservedAnimes);
 
   return (
     <div id="myprofile-animes">
@@ -33,12 +41,12 @@ const MyAnimes = () => {
             <table>
               <tbody>
                 {reservedAnimes.map((anime) => (
-                  <tr key={anime.id}>
-                    <td>{anime.name}</td>
+                  <tr key={anime.mal_id}>
+                    <td>{anime.title}</td>
                     <button
                       type="button"
                       className="anime-cancel-btn"
-                      onClick={() => handleCancelReservation(anime.id)}
+                      onClick={() => handleCancelReservation(anime.mal_id)}
                     >
                       Cancel Reservation
                     </button>

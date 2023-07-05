@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchAnimes,
@@ -44,6 +45,7 @@ const Animes = () => {
 
   const getReservationStatus = (animeId) => {
     const reserved = localStorage.getItem(`reserved_${animeId}`);
+    console.log(`reserved_${animeId}:`, reserved);
     return reserved === 'true';
   };
 
@@ -70,7 +72,9 @@ const Animes = () => {
           />
           <div className="data">
             <div className="wrapper">
-              <h2 className="name">{anime.title}</h2>
+              <h2 key={anime.mal_id}>
+                <Link to={`/anime/${anime.mal_id}`}>{anime.title}</Link>
+              </h2>
               {getReservationStatus(anime.mal_id) ? (
                 <span className="anime-reserved">Reserved</span>
               ) : (

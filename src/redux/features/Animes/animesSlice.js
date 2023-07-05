@@ -87,11 +87,13 @@ const animesSlice = createSlice({
       })
       .addCase(reserveAnime.fulfilled, (state, action) => {
         const animeId = action.payload;
-        state.animes = state.animes.map((anime) => (anime.id === animeId ? { ...anime, reserved: true } : anime));
+        state.animes = state.animes.map((anime) => (anime.id === animeId
+          ? { ...anime, reserved: true } : anime));
       })
       .addCase(cancelReservation.fulfilled, (state, action) => {
         const animeId = action.payload;
-        state.animes = state.animes.map((anime) => (anime.id === animeId ? { ...anime, reserved: false } : anime));
+        state.animes = state.animes.map((anime) => (anime.id === animeId
+          ? { ...anime, reserved: false } : anime));
       })
       .addCase(fetchNextPage.fulfilled, (state, action) => {
         state.currentPage = action.payload;
