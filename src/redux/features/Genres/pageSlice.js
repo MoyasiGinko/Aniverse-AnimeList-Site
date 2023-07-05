@@ -22,7 +22,7 @@ export const fetchGenrePageData = createAsyncThunk(
         /* eslint-disable  */
         for (let page = 1; page <= totalPages; page++) {
           const response = await fetch(
-            `https://api.jikan.moe/v4/top/anime?page=${page}`,
+            `https://api.jikan.moe/v4/top/anime?page=${page}`
           );
           const data = await response.json();
           animeData.push(...data.data);

@@ -30,7 +30,7 @@ export const fetchDetails = createAsyncThunk(
       console.log('Error fetching details:', error);
       throw error;
     }
-  }
+  },
 );
 
 const detailsSlice = createSlice({

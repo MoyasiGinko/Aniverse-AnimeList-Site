@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDetails } from '../redux/features/Details/detailsSlice';
 
-const DetailsPage = () => {
+const AnimeDetailsPage = () => {
   const { animeId } = useParams();
   const dispatch = useDispatch();
   const { data, isLoading, error } = useSelector((state) => state.details);
@@ -29,7 +29,9 @@ const DetailsPage = () => {
     return <div>No anime details available</div>;
   }
 
-  const { title, images, synopsis } = data;
+  const {
+    title, images, synopsis, episodes,
+  } = data;
 
   return (
     <div>
@@ -37,12 +39,12 @@ const DetailsPage = () => {
       <div>
         <img src={images?.jpg?.image_url} alt={title} />
       </div>
-      <div>{synopsis}</div>
-      <div>
-        <Link to={`/anime/${animeId}/details`}>See more details</Link>
+      <div className="detaiils">
+        <p>{synopsis}</p>
+        <p>{episodes}</p>
       </div>
     </div>
   );
 };
 
-export default DetailsPage;
+export default AnimeDetailsPage;

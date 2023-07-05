@@ -28,9 +28,7 @@ const GenrePage = () => {
       return [];
     }
 
-    return animeData.filter((anime) =>
-      anime.genres.some((g) => g.mal_id === Number(genreId))
-    );
+    return animeData.filter((anime) => anime.genres.some((g) => g.mal_id === Number(genreId)));
   }, [genreData, animeData, genreId]);
 
   if (isLoading) {
@@ -42,8 +40,8 @@ const GenrePage = () => {
   return (
     <div>
       <h1>
-        {genreData.find((genre) => genre.mal_id === Number(genreId))?.name ||
-          'Unknown'}
+        {genreData.find((genre) => genre.mal_id === Number(genreId))?.name
+          || 'Unknown'}
         Anime
       </h1>
       <ul>
