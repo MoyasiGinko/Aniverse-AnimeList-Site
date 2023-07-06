@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGenreData } from '../redux/features/Genres/genreSlice';
 
-const HomePage = () => {
+const GenreList = () => {
   const dispatch = useDispatch();
   const genreData = useSelector((state) => state.genre);
   const isLoading = useSelector((state) => state.loading);
@@ -45,4 +45,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default GenreList;

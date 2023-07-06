@@ -1,27 +1,39 @@
 import { NavLink } from 'react-router-dom';
-
-// const handleMyProfileClick = () => {
-//   window.location.load();
-// };
+// import { FaMicrophone } from 'react-icons/fa';
+// import { AiTwotoneSetting } from 'react-icons/ai';
+import { BsChevronLeft } from 'react-icons/bs';
 
 const NavBar = () => (
   <header className="header">
     <div className="logoDiv">
       <h1>React Capstone</h1>
     </div>
-
+    <div className="container">
+      <div className="nav-left">
+        <NavLink to="/">
+          <BsChevronLeft />
+        </NavLink>
+      </div>
+      {/* <div className="nav-right">
+        <FaMicrophone />
+        <AiTwotoneSetting />
+      </div> */}
+    </div>
     <nav className="navBar">
       <NavLink to="/" activeclassname="active">
         Home
       </NavLink>
-      <NavLink to="/Animes" activeclassname="active">
+      <NavLink to="/genres" activeclassname="active">
+        Genre
+      </NavLink>
+      <NavLink to="/anime" activeclassname="active">
         Animes
       </NavLink>
-      <NavLink to="/Search" activeclassname="active">
+      <NavLink to="/search" activeclassname="active">
         Search
       </NavLink>
       <div className="line" />
-      <NavLink to="/MyProfile" activeclassname="active">
+      <NavLink to="/profile" activeclassname="active">
         MyProfile
       </NavLink>
     </nav>

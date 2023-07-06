@@ -8,10 +8,11 @@ import NavBar from './components/NavBar';
 import Animes from './components/Animes';
 import MyProfile from './components/myProfile';
 import GenrePage from './components/GenrePage';
-import HomePage from './components/Genre';
+import GenreList from './components/Genre';
 import DetailsPage from './components/Details';
 import AnimeDetailsPage from './components/AnimeDetailsPage';
 import AnimeSearchPage from './components/SearchPage';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -21,17 +22,16 @@ function App() {
         <div className="devider" />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/genres" element={<GenreList />} />
           <Route path="/genres/:genreId" element={<GenrePage />} />
           <Route path="/anime/:animeId" element={<DetailsPage />} />
           <Route
             path="/anime/:animeId/details"
             element={<AnimeDetailsPage />}
           />
-          <Route path="/Animes" element={<Animes />} />
-          {/* <Route path="/Rockets" element={<Rockets />} />
-          <Route path="/Missions" element={<Missions />} /> */}
-          <Route path="/Search" element={<AnimeSearchPage />} />
-          <Route path="/MyProfile" element={<MyProfile />} />
+          <Route path="/anime" element={<Animes />} />
+          <Route path="/search" element={<AnimeSearchPage />} />
+          <Route path="/profile" element={<MyProfile />} />
         </Routes>
       </BrowserRouter>
     </Provider>
