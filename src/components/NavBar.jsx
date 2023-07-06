@@ -26,7 +26,7 @@ const NavBar = () => {
         </NavLink>
         <div className="line" />
         <NavLink to="/profile" activeClassName="active">
-          MyProfile
+          Profile
         </NavLink>
       </nav>
       <div className="container">

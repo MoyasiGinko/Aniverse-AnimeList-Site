@@ -8,7 +8,7 @@ const HomePage = () => {
     const fetchUpcomingAnime = async () => {
       try {
         const response = await fetch(
-          'https://api.jikan.moe/v4/seasons/upcoming',
+          'https://api.jikan.moe/v4/seasons/upcoming'
         );
         const data = await response.json();
         const upcomingAnimeData = data.data;
@@ -16,7 +16,7 @@ const HomePage = () => {
       } catch (error) {
         console.error(
           'An error occurred while fetching upcoming anime:',
-          error,
+          error
         );
       }
     };
@@ -27,27 +27,45 @@ const HomePage = () => {
   return (
     <div id="home">
       <ul className="cards">
-        <li>
-          <Link to="/genres">Genres</Link>
+        <li className="card">
+          <Link to="/genres">
+            <div className="card-content">
+              <span>Genres</span>
+            </div>
+          </Link>
         </li>
-        <li>
-          <Link to="/anime">Animes</Link>
+        <li className="card">
+          <Link to="/anime">
+            <div className="card-content">
+              <span>Animes</span>
+            </div>
+          </Link>
         </li>
-        <li>
-          <Link to="/search">Search</Link>
+        <li className="card">
+          <Link to="/search">
+            <div className="card-content">
+              <span>Search</span>
+            </div>
+          </Link>
         </li>
-        <li>
-          <Link to="/profile">My Profile</Link>
+        <li className="card">
+          <Link to="/profile">
+            <div className="card-content">
+              <span>My Profile</span>
+            </div>
+          </Link>
         </li>
       </ul>
       <div className="upcoming-anime">
         <h2>Upcoming Anime</h2>
         {upcomingAnime.length > 0 ? (
-          <ul>
+          <ul className="anime-list">
             {upcomingAnime.map((anime) => (
-              <li key={anime.mal_id}>
+              <li className="anime-card" key={anime.mal_id}>
                 <Link to={`/anime/${anime.mal_id}`}>
-                  <img src={anime.images?.jpg?.image_url} alt={anime.title} />
+                  <div className="anime-image">
+                    <img src={anime.images?.jpg?.image_url} alt={anime.title} />
+                  </div>
                   <h3>{anime.title}</h3>
                 </Link>
               </li>
