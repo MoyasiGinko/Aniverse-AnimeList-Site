@@ -17,6 +17,9 @@ const NavBar = () => (
       <NavLink to="/Animes" activeclassname="active">
         Animes
       </NavLink>
+      <NavLink to="/Search" activeclassname="active">
+        Search
+      </NavLink>
       <div className="line" />
       <NavLink to="/MyProfile" activeclassname="active">
         MyProfile

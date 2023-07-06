@@ -11,6 +11,7 @@ import GenrePage from './components/GenrePage';
 import HomePage from './components/Genre';
 import DetailsPage from './components/Details';
 import AnimeDetailsPage from './components/AnimeDetailsPage';
+import AnimeSearchPage from './components/SearchPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Animes" element={<Animes />} />
           {/* <Route path="/Rockets" element={<Rockets />} />
           <Route path="/Missions" element={<Missions />} /> */}
+          <Route path="/Search" element={<AnimeSearchPage />} />
           <Route path="/MyProfile" element={<MyProfile />} />
         </Routes>
       </BrowserRouter>
