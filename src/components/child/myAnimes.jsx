@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
   fetchAnimes,
@@ -10,7 +11,9 @@ const MyAnimes = () => {
   const { currentPage, status } = useSelector((state) => state.animes);
   const [reservedAnimes, setReservedAnimes] = useState([]);
 
-  const reservedAnimeIds = Object.keys(localStorage).filter((key) => key.startsWith('reserved_'));
+  const reservedAnimeIds = Object.keys(localStorage).filter((key) =>
+    key.startsWith('reserved_')
+  );
 
   useEffect(() => {
     if (status === 'idle') {
@@ -53,7 +56,11 @@ const MyAnimes = () => {
               <tbody>
                 {reservedAnimes.map((anime) => (
                   <tr key={anime?.mal_id}>
-                    <td>{anime?.title || 'Unknown Title'}</td>
+                    <td>
+                      <Link to={`/anime/${anime.mal_id}`}>
+                        {anime?.title || 'Unknown Title'}
+                      </Link>
+                    </td>
                     <td>
                       <button
                         type="button"

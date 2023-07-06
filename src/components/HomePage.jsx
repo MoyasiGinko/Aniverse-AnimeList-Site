@@ -8,7 +8,7 @@ const HomePage = () => {
     const fetchUpcomingAnime = async () => {
       try {
         const response = await fetch(
-          'https://api.jikan.moe/v4/seasons/upcoming'
+          'https://api.jikan.moe/v4/seasons/upcoming',
         );
         const data = await response.json();
         const upcomingAnimeData = data.data;
@@ -16,7 +16,7 @@ const HomePage = () => {
       } catch (error) {
         console.error(
           'An error occurred while fetching upcoming anime:',
-          error
+          error,
         );
       }
     };
