@@ -11,9 +11,7 @@ const MyAnimes = () => {
   const { currentPage, status } = useSelector((state) => state.animes);
   const [reservedAnimes, setReservedAnimes] = useState([]);
 
-  const reservedAnimeIds = Object.keys(localStorage).filter((key) =>
-    key.startsWith('reserved_')
-  );
+  const reservedAnimeIds = Object.keys(localStorage).filter((key) => key.startsWith('reserved_'));
 
   useEffect(() => {
     if (status === 'idle') {

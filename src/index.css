@@ -1,3 +1,4 @@
+@import './styles/NavBar.css';
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
 
 :root {
@@ -56,8 +57,8 @@ a {
 }
 
 .line {
-  width: 2px;
-  height: 20px;
+  width: 20px;
+  height: 2px;
   background-color: #b6b7b8;
   margin-left: -10px;
   margin-right: -10px;
@@ -82,7 +83,6 @@ a {
   color: skyblue;
 }
 
-.rockets,
 .all-animes {
   margin-top: 20px;
   display: flex;
@@ -91,7 +91,6 @@ a {
   align-items: center;
 }
 
-.rocket,
 .anime {
   width: 90%;
   height: 400;
@@ -100,7 +99,6 @@ a {
   column-gap: 20px;
 }
 
-.rocketImage,
 .animeImage {
   width: 240px;
   height: 380px;
@@ -126,20 +124,6 @@ a {
   height: 40px;
 }
 
-.cancelReserve {
-  height: 40px;
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  color: #9da3a8;
-  border-radius: 5px;
-  font-size: 18px;
-  border-color: #9da3a8;
-  cursor: pointer;
-}
-
 .reserved {
   display: flex;
   align-items: center;
@@ -161,29 +145,6 @@ a {
   color: #45494c;
 }
 
-.rockets-title {
-  margin-top: 25px;
-  font-size: 30px;
-}
-
-.myRockets {
-  width: 700px;
-  height: 245px;
-  border-radius: 5px;
-  border: 1px solid #e8e8e8;
-}
-
-.rocketName {
-  height: 60px;
-  margin-left: 25px;
-  display: flex;
-  align-items: center;
-}
-
-.rocket-devider {
-  border-bottom: 1px solid #e8e8e8;
-}
-
 td {
   border: 1px solid black;
   padding: 0.3rem;
@@ -194,57 +155,13 @@ td {
   justify-content: space-evenly;
 }
 
-#myprofile-missions h2,
-#myprofile-rockets h2,
 #myprofile-animes h2 {
   padding: 1rem;
 }
 
-#myprofile-missions table,
-#myprofile-rockets table,
+
 #myprofile-animes table {
   padding: 1rem;
-}
-
-#missions {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-#missions p {
-  margin-top: 0.5rem;
-}
-
-.mission-btn {
-  padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  margin-top: 0.8rem;
-  cursor: pointer;
-}
-
-.active-member {
-  padding: 0.2rem 0.6rem;
-  background-color: #38e54d;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  font-size: 0.6rem;
-}
-
-.not-a-member {
-  padding: 0.2rem 0.6rem;
-  background-color: #272932;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  font-size: 0.6rem;
 }
 
 #card {
@@ -278,61 +195,50 @@ td {
 }
 
 @keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
   50% {
     opacity: 0;
   }
 }
 
-.anime-reserve-btn {
-  padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  width: 100px;
-}
+@media screen and (max-width: 768px) {
+  .navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
-.anime-cancel-btn {
-  padding: 0.4rem 0.5rem;
-  background-color: #ff8d7d;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  width: 100px;
-}
+  .navBar.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-.anime-reserve-btn:hover {
-  background-color: rgb(0, 0, 255);
-  border-radius: 4px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100px;
-}
+  .navBar a {
+    font-size: 18px;
+    margin: 10px;
+  }
 
-.anime-cancel-btn:hover {
-  background-color: rgb(255, 0, 0);
-  border-radius: 4px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100px;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.anime-reserved {
-  background-color: #4dff62;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  text-align: center;
+  .container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+  }
 }

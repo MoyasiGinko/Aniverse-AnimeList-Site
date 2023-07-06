@@ -31,7 +31,7 @@ const HomePage = () => {
           <Link to="/genres">Genres</Link>
         </li>
         <li>
-          <Link to="/animes">Animes</Link>
+          <Link to="/anime">Animes</Link>
         </li>
         <li>
           <Link to="/search">Search</Link>
