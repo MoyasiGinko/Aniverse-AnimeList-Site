@@ -3,8 +3,14 @@ import { useState } from 'react';
 const AnimeSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [typingTimeout, setTypingTimeout] = useState(null);
 
   const handleSearch = async () => {
+    if (searchQuery.trim() === '') {
+      setSearchResults([]); // Clear search results if search query is empty
+      return;
+    }
+
     const url = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
       searchQuery
     )}`;
@@ -22,8 +28,23 @@ const AnimeSearchPage = () => {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent form submission
       handleSearch();
     }
+  };
+
+  const handleInputChange = (e) => {
+    clearTimeout(typingTimeout); // Clear previous timeout
+
+    const inputValue = e.target.value;
+    setSearchQuery(inputValue);
+
+    // Set a timeout for API request after 500ms of inactivity
+    const timeout = setTimeout(() => {
+      handleSearch();
+    }, 500);
+
+    setTypingTimeout(timeout);
   };
 
   return (
@@ -33,8 +54,8 @@ const AnimeSearchPage = () => {
         <input
           type="text"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyPress={handleKeyPress} // Call handleKeyPress on key press
+          onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           placeholder="Search for anime..."
         />
         <button type="button" onClick={handleSearch}>
@@ -42,7 +63,7 @@ const AnimeSearchPage = () => {
         </button>
       </div>
       <div>
-        {searchResults.length > 0 ? (
+        {searchQuery.trim() !== '' && searchResults.length > 0 ? (
           <ul>
             {searchResults.map((anime) => (
               <li key={anime.mal_id}>
@@ -52,9 +73,7 @@ const AnimeSearchPage = () => {
               </li>
             ))}
           </ul>
-        ) : (
-          <p>No results found.</p>
-        )}
+        ) : null}
       </div>
     </div>
   );
