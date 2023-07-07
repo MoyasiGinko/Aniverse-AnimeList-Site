@@ -6,15 +6,21 @@ import { fetchGenrePageData } from '../redux/features/Genres/pageSlice';
 const GenrePage = () => {
   const { genreId } = useParams();
   const dispatch = useDispatch();
-  const { genreData, animeData, isLoading } = useSelector(
+  const {
+    genreData, animeData, isLoading, error,
+  } = useSelector(
     (state) => state.genrespage,
   );
 
   useEffect(() => {
     const fetchGenreData = async () => {
       if (animeData.length === 0 || genreData.length === 0) {
-        // Fetch genre and anime data if they are not available in the Redux store
-        await dispatch(fetchGenrePageData());
+        try {
+          // Fetch genre and anime data if they are not available in the Redux store
+          await dispatch(fetchGenrePageData());
+        } catch (error) {
+          console.log('Error fetching genre and anime data:', error);
+        }
       }
     };
 
@@ -33,6 +39,15 @@ const GenrePage = () => {
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        Error:
+        {error.message}
+      </div>
+    );
   }
 
   const genreAnimes = filterGenreAnimes();
