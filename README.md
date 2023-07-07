@@ -1,6 +1,7 @@
 <a name="readme-top"></a>
 
-<https://github.com/MoyasiGinko/React-Capstone/blob/feature/components-testing/src/assets/av.png>
+![av](https://github.com/MoyasiGinko/React-Capstone/assets/108092696/73947f16-b861-4699-becf-11022c25b0b8)
+
 
   <h3><b>Aniverse Studio</b></h3>
 
