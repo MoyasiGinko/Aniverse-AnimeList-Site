@@ -14,14 +14,14 @@ describe('AnimeSearchPage component', () => {
     const searchInput = screen.getByPlaceholderText(/search for anime/i);
     const searchButton = screen.getByRole('button', { name: /search/i });
 
-    fireEvent.change(searchInput, { target: { value: 'Naruto' } });
+    fireEvent.change(searchInput, { target: { value: 'noblesse' } });
     fireEvent.click(searchButton);
 
     // Wait for API request and search results to update
     await screen.findByText((content, element) => {
       const normalizedText = content.toLowerCase();
       const elementText = element.textContent.toLowerCase();
-      return elementText.includes('naruto') && normalizedText === 'naruto';
+      return elementText.includes('noblesse') && normalizedText === 'noblesse';
     });
 
     const searchResults = screen.getByRole('list');
