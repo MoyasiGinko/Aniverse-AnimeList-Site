@@ -2,7 +2,7 @@
 
 <https://github.com/MoyasiGinko/React-Capstone/blob/feature/components-testing/src/assets/av.png>
 
-  <h3><b>Aniverse Studio</b></h3>
+  <h1><b>Aniverse Studio</b></h1>
 
 </div>
 
