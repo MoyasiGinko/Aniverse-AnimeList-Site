@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 import Animes from '../components/Animes';
 
 const mockStore = configureMockStore([thunk]);
@@ -17,11 +18,9 @@ describe('Animes component', () => {
       animes: {
         animes: [
           {
-            id: 1,
-            name: 'Anime 1',
-            type: 'Type 1',
+            mal_id: 1,
+            title: 'Anime 1',
             images: { jpg: { image_url: 'image1.jpg' } },
-            reserved: true,
           },
         ],
         status: 'succeeded',
@@ -34,7 +33,9 @@ describe('Animes component', () => {
   it('renders Animes component correctly', () => {
     render(
       <Provider store={store}>
-        <Animes />
+        <BrowserRouter>
+          <Animes />
+        </BrowserRouter>
       </Provider>,
     );
 
@@ -47,7 +48,9 @@ describe('Animes component', () => {
   it('dispatches cancelReservation action when Cancel Reservation button is clicked', () => {
     render(
       <Provider store={store}>
-        <Animes />
+        <BrowserRouter>
+          <Animes />
+        </BrowserRouter>
       </Provider>,
     );
 
