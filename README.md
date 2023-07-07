@@ -1,7 +1,8 @@
 <a name="readme-top"></a>
 
+<https://github.com/MoyasiGinko/React-Capstone/blob/feature/components-testing/src/assets/v.png>
 
-  <h3><b>Space Traveler's Hub</b></h3>
+  <h3><b>Aniverse Studio</b></h3>
 
 </div>
 
@@ -29,7 +30,7 @@
 
 # 📖 <a name="about-project"></a>
 
-> We built an app for a company that provides commercial and scientific space travel services using the SpaceX API. The application allows the users to book rockets and join selected space missions.
+> We built an app for a group of people, we call anime enthusiasts to watch animes information, details and many more using MAL API. The application allows the users to "add to list" anime and explore anime world with informations and queries.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -60,9 +61,17 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Rocket Booking: Our application offers users the unique ability to book their own journey on one of SpaceX's impressive rockets. Browse the available spacecraft, learn about their specifications, and reserve your seat for a space adventure.
-- Mission Selection: Not only can users book a flight, but they can also join selected space missions. This feature allows a hands-on experience for space enthusiasts, providing insights about various missions and letting them be a part of it.
-- Commercial and Scientific Journey Options: We provide both commercial and scientific space travel services. Whether you're a business looking for unique marketing opportunities, a scientist conducting research, or an individual with a passion for space, our application caters to a wide range of interests.
+- Anime Information: Explore a vast collection of anime titles, including popular and trending shows. Get detailed information about each anime, such as synopsis, genres, episode count, airing status, and more.
+
+- Anime Details: Dive deeper into your favorite anime series. Access episode lists, character profiles, voice actors, ratings, and reviews. Stay up-to-date with the latest news and announcements related to your favorite shows.
+
+- Add to List: Create your personal anime watchlist by adding shows to your list. Keep track of the anime you plan to watch, are currently watching, or have completed. Mark episodes as watched to keep your progress updated.
+
+- Genre Exploration: Discover anime based on specific genres of your interest. Browse through various genres such as action, romance, comedy, fantasy, and more. Find hidden gems and explore new genres to broaden your anime horizons.
+
+- Search Functionality: Easily search for anime titles, characters, or specific episodes. Use keywords, filters, or advanced search options to quickly find what you're looking for. Save your favorite searches for future reference.
+
+- User Profiles: Create a personalized user profile to showcase your anime preferences and watch history. Connect with other anime enthusiasts, share recommendations, and discuss your favorite shows in a vibrant community
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,7 +98,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:wwwdrt/react-rtk-group-project.git 
+  git clone https://github.com/MoyasiGinko/React-Capstone.git
 ```
 
 ### Install
@@ -123,18 +132,6 @@ npm test
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **DRT**
-
-- GitHub: [@wwwdrt](https://github.com/wwwdrt)
-- Twitter: [@drtcode](https://twitter.com/drtcode)
-- Medium: [@drtcode](https://medium.com/@wwwdrt)
-
-👤 **Ahmed**
-
-- GitHub: [@ahmed025566](https://github.com/ahmed025566)
-- Twitter: [@ahmed025566](https://twitter.com/AhmedEl18692792)
-- Linktree: [@ahmed025566](https://www.linkedin.com/in/ahmed-salah025566)
-
 👤 **Moyasi**
 
 - GitHub: [@MoyasiGinko](https://github.com/MoyasiGinko)
@@ -145,9 +142,11 @@ npm test
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Virtual Tour: We plan to integrate a virtual tour feature that provides a realistic 3D exploration of the rockets and the space station, offering users an immersive pre-flight experience.
-- Launch Live Stream: We're looking forward to adding the option to live stream rocket launches directly through our application, keeping our users connected to the thrilling moments of space travel.
-- Interactive Space Education Section: In order to encourage space science learning, we'll introduce an interactive section dedicated to educational resources about space exploration and technology.
+- Notifications and Reminders: Stay informed about new episodes, upcoming releases, and important anime-related events. Receive personalized recommendations based on your watch history and preferences.
+
+- Community Interaction: Enhance the app by introducing community features that allow users to connect, interact, and share their love for anime. Implement features such as user forums, discussion boards, and the ability to follow and interact with other users. This will foster a vibrant anime community within the app, enabling users to engage in conversations, exchange recommendations, and form connections based on shared interests.
+
+- Personalized Recommendations: Implement a recommendation engine that utilizes machine learning algorithms to provide personalized anime recommendations based on the user's watching history, genre preferences, ratings, and community interactions. By analyzing user behavior and patterns, the app can suggest relevant anime titles that match the user's interests, helping them discover new shows and expand their anime repertoire. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,20 +160,20 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, don't forget to give it a star on GitHub! Your support helps us to continue improving the app and bringing space closer to everyone. Please share Space Travelers Hub with your friends, family, and fellow space enthusiasts. Together, we can push the boundaries of space exploration!
+If you like this project, don't forget to give it a star on GitHub! Your support helps us to continue improving the app and bringing anime universe closer to everyone. Please share Aniverse Studio with your friends, family, and fellow anime enthusiasts. Together, we can push the boundaries of aniverse exploration!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the brilliant team at SpaceX for their open API and for their inspiring work on pushing the boundaries of space travel. The ingenuity and dedication they exhibit in their missions have been the cornerstone of our project. I'd also like to acknowledge the countless developers and contributors in the open-source community whose code snippets, libraries, and guidance have made Space Travelers Hub possible.
+We would like to express our sincere gratitude to MyAnimeList (MAL) for providing us with access to their comprehensive anime API. Their API has been instrumental in powering our application, allowing us to retrieve and display anime information, details, and much more. The extensive collection of data available through the MAL API has greatly enriched the user experience of our app and enabled us to deliver a robust platform for anime enthusiasts.
+
+We are thankful for the efforts and dedication of the MyAnimeList team in maintaining and providing access to this valuable resource. Their commitment to supporting the anime community and sharing anime-related data has been invaluable to our project's success.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

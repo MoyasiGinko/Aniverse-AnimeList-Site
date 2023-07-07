@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
+import logoImage from '../assets/v.png'; // Import the image file
 
 const NavBar = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
@@ -12,6 +13,9 @@ const NavBar = () => {
   return (
     <header className="header">
       <nav className={`navBar ${isOverlayOpen ? 'open' : ''}`}>
+        <div>
+          <img src={logoImage} alt="logo" className="logo-v" />
+        </div>
         <NavLink to="/" activeClassName="active">
           Home
         </NavLink>
