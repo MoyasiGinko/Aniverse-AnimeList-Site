@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
-import logoImage from '../assets/v.png'; // Import the image file
+import logoImage from '../assets/av.png';
 
 const NavBar = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
