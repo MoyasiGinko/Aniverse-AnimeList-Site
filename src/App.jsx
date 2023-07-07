@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './redux/store'; // Import your Redux store
+import store from './redux/store';
 import NavBar from './components/NavBar';
-// import Rockets from './components/rockets';
-// import Missions from './components/missions';
 import Animes from './components/Animes';
 import MyProfile from './components/myProfile';
 import GenrePage from './components/GenrePage';

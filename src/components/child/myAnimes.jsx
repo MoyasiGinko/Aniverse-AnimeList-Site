@@ -5,6 +5,7 @@ import {
   fetchAnimes,
   cancelReservation,
 } from '../../redux/features/Animes/animesSlice';
+import 'regenerator-runtime/runtime';
 
 const MyAnimes = () => {
   const dispatch = useDispatch();
@@ -22,14 +23,15 @@ const MyAnimes = () => {
   useEffect(() => {
     const fetchReservedAnimesData = async () => {
       const fetchedAnimes = [];
-      /* eslint-disable */
-      for (const animeId of reservedAnimeIds) {
-        const id = animeId.split('_')[1]; // Remove the 'reserved_' prefix
-        const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
-        const data = await response.json();
-        fetchedAnimes.push(data.data);
-      }
-      /* eslint-enable */
+      // Used array iteration methods instead of for...of loop
+      await Promise.all(
+        reservedAnimeIds.map(async (animeId) => {
+          const id = animeId.split('_')[1]; // Remove the 'reserved_' prefix
+          const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
+          const data = await response.json();
+          fetchedAnimes.push(data.data);
+        }),
+      );
 
       setReservedAnimes(fetchedAnimes);
     };
