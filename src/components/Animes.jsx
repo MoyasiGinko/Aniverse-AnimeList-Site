@@ -12,8 +12,10 @@ import {
 
 const Animes = () => {
   const dispatch = useDispatch();
-  const { animes, currentPage, status, error } = useSelector(
-    (state) => state.animes
+  const {
+    animes, currentPage, status, error,
+  } = useSelector(
+    (state) => state.animes,
   );
 
   useEffect(() => {

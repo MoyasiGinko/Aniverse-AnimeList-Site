@@ -1,172 +1,166 @@
 #home {
-    padding: 20px;
+  padding: 20px;
 }
 
 .cards {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .cards li {
-    width: 240px;
-    height: 220px;
-    list-style: none;
-    margin-right: 10px;
+  width: 240px;
+  height: 220px;
+  list-style: none;
+  margin-right: 10px;
 }
 
 .cards a {
-    display: inline-block;
-    padding: 10px;
-    background-color: transparent;
-    color: #f1f1f1;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.cards a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.upcoming-anime {
-    margin-top: 40px;
-}
-
-.upcoming-anime h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.anime-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
+  display: inline-block;
+  padding: 10px;
+  background-color: transparent;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .anime-card {
-    position: relative;
-    width: 220px;
-    height: 320px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.anime-card:hover {
-    transform: translateY(-5px);
-}
-
-.anime-card:before {
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.anime-card:hover:before {
-    opacity: 1;
-}
-
-.anime-image {
-    position: relative;
-    width: 100%;
-    height: 200px;
-}
-
-.anime-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.anime-card h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #ff7f50;
+  position: relative;
+  width: 220px;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .anime-card a {
-    display: block;
-    padding: 10px;
-    color: #ff7f50;
-    text-decoration: none;
-}
-
-.anime-card a:hover {
-    text-decoration: underline;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.card {
-    width: 400px;
-    height: 250px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s;
-}
-
-.card:hover {
-    transform: rotateY(-10deg);
-}
-
-.card-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    color: #ff7f50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform-origin: center;
-    backface-visibility: hidden;
-    transition: transform 0.5s;
-}
-
-.card-content span {
-    font-size: 24px;
-}
-
-.card:hover .card-content {
-    transform: rotateY(180deg);
-}
-
-.card-content:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.card:hover .card-content:before {
-    opacity: 1;
+  display: block;
+  padding: 10px;
+  color: #ff7f50;
+  text-decoration: none;
 }
 
 .card a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: #fff;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+.cards a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upcoming-anime {
+  margin-top: 40px;
+}
+
+.upcoming-anime h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.anime-card:hover {
+  transform: translateY(-5px);
+}
+
+.anime-card::before {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.anime-card:hover::before {
+  opacity: 1;
+}
+
+.anime-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.anime-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.anime-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ff7f50;
+}
+
+.anime-card a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: rotateY(-10deg);
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: #ff7f50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.card-content span {
+  font-size: 24px;
+}
+
+.card:hover .card-content {
+  transform: rotateY(180deg);
+}
+
+.card-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover .card-content::before {
+  opacity: 1;
 }

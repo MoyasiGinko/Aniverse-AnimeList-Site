@@ -63,11 +63,26 @@ const AnimeDetailsPage = () => {
         <p>{synopsis}</p>
         <div>
           <h2>Details</h2>
-          <p>Episodes: {episodes}</p>
-          <p>Aired: {aired.string}</p>
-          <p>Rating: {rating}</p>
-          <p>Score: {score}</p>
-          <p>Popularity: {popularity}</p>
+          <p>
+            Episodes:
+            {episodes}
+          </p>
+          <p>
+            Aired:
+            {aired.string}
+          </p>
+          <p>
+            Rating:
+            {rating}
+          </p>
+          <p>
+            Score:
+            {score}
+          </p>
+          <p>
+            Popularity:
+            {popularity}
+          </p>
         </div>
         <div>
           <h2>Genres</h2>

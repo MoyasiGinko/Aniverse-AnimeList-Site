@@ -12,7 +12,7 @@ const DetailsPage = () => {
   const dispatch = useDispatch();
   const { data, isLoading, error } = useSelector((state) => state.details);
   const [isReserved, setReserved] = useState(
-    localStorage.getItem(`reserved_${animeId}`) === 'true'
+    localStorage.getItem(`reserved_${animeId}`) === 'true',
   );
 
   useEffect(() => {

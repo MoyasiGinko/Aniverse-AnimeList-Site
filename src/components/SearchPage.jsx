@@ -13,7 +13,7 @@ const AnimeSearchPage = () => {
     }
 
     const url = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
-      searchQuery
+      searchQuery,
     )}`;
 
     try {
