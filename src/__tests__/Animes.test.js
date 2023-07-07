@@ -21,6 +21,7 @@ describe('Animes component', () => {
             mal_id: 1,
             title: 'Anime 1',
             images: { jpg: { image_url: 'image1.jpg' } },
+            reserved: true,
           },
         ],
         status: 'succeeded',
@@ -36,7 +37,7 @@ describe('Animes component', () => {
         <BrowserRouter>
           <Animes />
         </BrowserRouter>
-      </Provider>,
+      </Provider>
     );
 
     const animeNameElement = screen.getByText('Anime 1');
