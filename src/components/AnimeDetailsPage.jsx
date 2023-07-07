@@ -13,35 +13,78 @@ const AnimeDetailsPage = () => {
   }, [dispatch, animeId]);
 
   if (isLoading) {
-    return <div>Loading anime details...</div>;
+    return (
+      <div className="anime-details-page">
+        <div className="loading-message">Loading anime details...</div>
+      </div>
+    );
   }
 
   if (error) {
     return (
-      <div>
-        Error loading anime details:
-        {error}
+      <div className="anime-details-page">
+        <div className="error-message">
+          Error loading anime details:
+          {error}
+        </div>
       </div>
     );
   }
 
   if (!data) {
-    return <div>No anime details available</div>;
+    return (
+      <div className="anime-details-page">
+        <div>No anime details available</div>
+      </div>
+    );
   }
 
   const {
-    title, images, synopsis, episodes,
+    title,
+    images,
+    synopsis,
+    episodes,
+    aired,
+    rating,
+    score,
+    popularity,
+    genres,
+    studios,
   } = data;
 
   return (
-    <div>
+    <div className="anime-details-page">
       <h1>{title}</h1>
-      <div>
+      <div className="anime-image">
         <img src={images?.jpg?.image_url} alt={title} />
       </div>
-      <div className="detaiils">
+      <div className="details">
+        <h2>Synopsis</h2>
         <p>{synopsis}</p>
-        <p>{episodes}</p>
+        <div>
+          <h2>Details</h2>
+          <p>Episodes: {episodes}</p>
+          <p>Aired: {aired.string}</p>
+          <p>Rating: {rating}</p>
+          <p>Score: {score}</p>
+          <p>Popularity: {popularity}</p>
+        </div>
+        <div>
+          <h2>Genres</h2>
+          <ul>
+            {genres.map((genre) => (
+              <li key={genre.mal_id}>{genre.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Studios</h2>
+          <ul>
+            {studios.map((studio) => (
+              <li key={studio.mal_id}>{studio.name}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

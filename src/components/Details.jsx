@@ -12,7 +12,7 @@ const DetailsPage = () => {
   const dispatch = useDispatch();
   const { data, isLoading, error } = useSelector((state) => state.details);
   const [isReserved, setReserved] = useState(
-    localStorage.getItem(`reserved_${animeId}`) === 'true',
+    localStorage.getItem(`reserved_${animeId}`) === 'true'
   );
 
   useEffect(() => {
@@ -49,34 +49,49 @@ const DetailsPage = () => {
   const { title, images, synopsis } = data;
 
   return (
-    <div>
-      <h1>{title}</h1>
-      {isReserved ? <span className="anime-reserved">Reserved</span> : <></>}
-      <div>
-        <img src={images?.jpg?.image_url} alt={title} />
-      </div>
-      <div>{synopsis}</div>
-      <div>
-        <Link to={`/anime/${animeId}/details`}>See more details</Link>
-      </div>
-      <div>
-        {isReserved ? (
-          <button
-            type="button"
-            className="anime-cancel-btn"
-            onClick={handleCancelReservation}
-          >
-            Cancel Reservation
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="anime-reserve-btn"
-            onClick={handleReserveAnime}
-          >
-            Reserve Anime
-          </button>
-        )}
+    <div className="details-page">
+      <div className="details-container">
+        <div className="details-header">
+          <h1 className="details-title">{title}</h1>
+        </div>
+        <div className="details-content">
+          <div className="details-image">
+            <img src={images?.jpg?.image_url} alt={title} />
+          </div>
+          <div className="details-info">
+            <div className="details-synopsis">
+              <h2>Synopsis</h2>
+              <p>{synopsis}</p>
+            </div>
+            <div className="details-actions">
+              <div className="details-link">
+                <Link to={`/anime/${animeId}/details`}>See more details</Link>
+              </div>
+              <div className="details-reservation">
+                {isReserved ? (
+                  <>
+                    <span className="details-reserved">Added successfully</span>
+                    <button
+                      type="button"
+                      className="details-cancel-btn"
+                      onClick={handleCancelReservation}
+                    >
+                      Remove from List
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    type="button"
+                    className="details-reserve-btn"
+                    onClick={handleReserveAnime}
+                  >
+                    Add to List
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
