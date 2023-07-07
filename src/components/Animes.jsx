@@ -12,10 +12,8 @@ import {
 
 const Animes = () => {
   const dispatch = useDispatch();
-  const {
-    animes, currentPage, status, error,
-  } = useSelector(
-    (state) => state.animes,
+  const { animes, currentPage, status, error } = useSelector(
+    (state) => state.animes
   );
 
   useEffect(() => {
@@ -64,29 +62,19 @@ const Animes = () => {
   return (
     <div className="all-animes">
       {animes.map((anime) => (
-        <div className="anime" key={anime.mal_id}>
+        <div className="anime-card2" key={anime.mal_id}>
           <img
             className="animeImage"
             src={anime.images?.jpg?.image_url}
             alt={anime.title}
           />
-          <div className="data">
-            <div className="wrapper">
-              <h2 key={anime.mal_id}>
-                <Link to={`/anime/${anime.mal_id}`}>{anime.title}</Link>
-              </h2>
-              {getReservationStatus(anime.mal_id) ? (
-                <span className="anime-reserved">Reserved</span>
-              ) : (
-                <></>
-              )}
-            </div>
-            <div className="description">
-              <p>{anime.synopsis}</p>
-              <p>
-                ID:
-                {anime.mal_id}
-              </p>
+          <div className="anime-title">
+            <h2 key={anime.mal_id}>
+              <Link to={`/anime/${anime.mal_id}`}>{anime.title}</Link>
+            </h2>
+          </div>
+          <div className="anime-content">
+            <div className="anime-description">
               <p>
                 Episodes:
                 {anime.episodes}
@@ -99,8 +87,9 @@ const Animes = () => {
                   className="anime-cancel-btn"
                   onClick={() => handleCancelReservation(anime.mal_id)}
                 >
-                  Cancel Reservation
+                  Remove from List
                 </button>
+                <span className="anime-reserved">Added successfully</span>
               </>
             ) : (
               <button
@@ -109,7 +98,7 @@ const Animes = () => {
                 data-testid="cancel-reservation-button"
                 onClick={() => handleReserveAnime(anime.mal_id)}
               >
-                Reserve Anime
+                Add to List
               </button>
             )}
           </div>

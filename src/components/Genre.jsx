@@ -32,12 +32,14 @@ const GenreList = () => {
   }
 
   return (
-    <div>
+    <div className="genre-list">
       <h1>Genre List</h1>
-      <ul>
+      <ul className="menu">
         {genreData.map((genre) => (
-          <li key={genre.mal_id}>
-            <Link to={`/genres/${genre.mal_id}`}>{genre.name}</Link>
+          <li key={genre.mal_id} className="menu-item">
+            <Link to={`/genres/${genre.mal_id}`} className="menu-link">
+              {genre.name}
+            </Link>
           </li>
         ))}
       </ul>

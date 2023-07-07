@@ -60,7 +60,6 @@
 
 .anime-card:before {
     content: '';
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -89,13 +88,13 @@
 .anime-card h3 {
     margin-top: 10px;
     font-size: 18px;
-    color: #d27700;
+    color: #ff7f50;
 }
 
 .anime-card a {
     display: block;
     padding: 10px;
-    color: #fff;
+    color: #ff7f50;
     text-decoration: none;
 }
 

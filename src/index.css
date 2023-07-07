@@ -1,5 +1,8 @@
 @import './styles/NavBar.css';
 @import './styles/Home.css';
+@import './styles/Anime.css';
+@import './styles/Genre.css';
+@import './styles/GenrePage.css';
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
 
 :root {
@@ -47,117 +50,6 @@ a {
   margin: 13% 30% 0 40%;
   font-family: 'Shantell Sans', cursive;
   color: skyblue;
-}
-
-.all-animes {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-}
-
-.anime {
-  width: 90%;
-  height: 400;
-  display: flex;
-  flex-direction: row;
-  column-gap: 20px;
-}
-
-.animeImage {
-  width: 240px;
-  height: 380px;
-  border-radius: 6px;
-}
-
-.data {
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-}
-
-.reserve {
-  padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  margin-top: 0.8rem;
-  cursor: pointer;
-  width: 180px;
-  font-size: 18px;
-  height: 40px;
-}
-
-.reserved {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #18a2b8;
-  border-radius: 5px;
-  border: none;
-  color: whitesmoke;
-  margin-top: 0.8rem;
-  cursor: pointer;
-  height: 25px;
-  width: 100px;
-}
-
-.myprofile {
-  display: flex;
-  border: 2px solid skyblue;
-  column-gap: 100px;
-  color: #45494c;
-}
-
-td {
-  border: 1px solid black;
-  padding: 0.3rem;
-}
-
-#myprofile {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#myprofile-animes h2 {
-  padding: 1rem;
-}
-
-
-#myprofile-animes table {
-  padding: 1rem;
-}
-
-#card {
-  padding: 1rem;
-  transition: all 0.3s;
-}
-
-#card:hover {
-  border: 2px solid black;
-  border-radius: 6px;
-  transform: scale(0.95);
-  animation: blink 0.4s;
-}
-
-.anime-btn {
-  padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  margin-top: 0.8rem;
-  cursor: pointer;
-  width: 220px;
-}
-
-#anime-card:hover {
-  border: 2px solid black;
-  border-radius: 6px;
-  transform: scale(0.95);
-  animation: blink 0.4s;
 }
 
 @keyframes blink {
