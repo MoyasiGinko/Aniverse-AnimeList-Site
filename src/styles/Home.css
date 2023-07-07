@@ -9,6 +9,8 @@
 }
 
 .cards li {
+    width: 240px;
+    height: 220px;
     list-style: none;
     margin-right: 10px;
 }
@@ -111,8 +113,8 @@
 }
 
 .card {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 250px;
     perspective: 1000px;
     transform-style: preserve-3d;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);

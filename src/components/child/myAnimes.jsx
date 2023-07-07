@@ -11,7 +11,9 @@ const MyAnimes = () => {
   const { currentPage, status } = useSelector((state) => state.animes);
   const [reservedAnimes, setReservedAnimes] = useState([]);
 
-  const reservedAnimeIds = Object.keys(localStorage).filter((key) => key.startsWith('reserved_'));
+  const reservedAnimeIds = Object.keys(localStorage).filter((key) =>
+    key.startsWith('reserved_')
+  );
 
   useEffect(() => {
     if (status === 'idle') {
@@ -44,7 +46,7 @@ const MyAnimes = () => {
 
   return (
     <div id="myprofile-animes">
-      <h2>My Animes</h2>
+      <h2>My Anime List</h2>
       {status === 'loading' ? (
         <p>Loading...</p>
       ) : (
@@ -65,7 +67,7 @@ const MyAnimes = () => {
                         className="anime-cancel-btn"
                         onClick={() => handleCancelReservation(anime?.mal_id)}
                       >
-                        Cancel Reservation
+                        Remove from List
                       </button>
                     </td>
                   </tr>
@@ -73,7 +75,7 @@ const MyAnimes = () => {
               </tbody>
             </table>
           ) : (
-            <p>No animes reserved.</p>
+            <p>No animes added.</p>
           )}
         </>
       )}

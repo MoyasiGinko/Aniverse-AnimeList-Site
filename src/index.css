@@ -6,6 +6,7 @@
 @import './styles/Details.css';
 @import './styles/AnimeDetails.css';
 @import './styles/Search.css';
+@import './styles/Profile.css';
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
 
 :root {
