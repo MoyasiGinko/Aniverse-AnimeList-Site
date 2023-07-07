@@ -39,7 +39,7 @@ describe('GenrePage component', () => {
             <Route path="/genre/:genreId" element={<GenrePage />} />
           </Routes>
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     // Custom text matcher function that ignores whitespace and line breaks
@@ -50,9 +50,7 @@ describe('GenrePage component', () => {
     };
 
     // Assert that the genre name is rendered correctly
-    const genreName = screen.getByText((content, element) =>
-      genreNameMatcher(`${genreData[0].name}Anime`, element)
-    );
+    const genreName = screen.getByText((content, element) => genreNameMatcher(`${genreData[0].name}Anime`, element));
     expect(genreName).toBeInTheDocument();
   });
 
@@ -94,7 +92,7 @@ describe('GenrePage component', () => {
             <Route path="/genre/:genreId" element={<GenrePage />} />
           </Routes>
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     // Assert that the list of anime titles is rendered correctly
