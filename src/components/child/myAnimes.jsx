@@ -10,7 +10,7 @@ import 'regenerator-runtime/runtime';
 const MyAnimes = () => {
   const dispatch = useDispatch();
   const { currentPage, status } = useSelector((state) => state.animes);
-  const [reservedAnimes, setReservedAnimes] = useState([]);
+  const [reservedAnimes, setReservedAnimes] = useState({});
 
   const reservedAnimeIds = Object.keys(localStorage).filter((key) => key.startsWith('reserved_'));
 
@@ -22,14 +22,14 @@ const MyAnimes = () => {
 
   useEffect(() => {
     const fetchReservedAnimesData = async () => {
-      const fetchedAnimes = [];
-      // Used array iteration methods instead of for...of loop
+      const fetchedAnimes = {};
+
       await Promise.all(
         reservedAnimeIds.map(async (animeId) => {
-          const id = animeId.split('_')[1]; // Remove the 'reserved_' prefix
+          const id = animeId.replace('reserved_', ''); // Remove the 'reserved_' prefix
           const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
           const data = await response.json();
-          fetchedAnimes.push(data.data);
+          fetchedAnimes[animeId] = data.data;
         }),
       );
 
@@ -40,8 +40,9 @@ const MyAnimes = () => {
   }, [reservedAnimeIds]);
 
   const handleCancelReservation = (animeId) => {
+    const id = animeId.replace('reserved_', ''); // Remove the 'reserved_' prefix
     localStorage.removeItem(`reserved_${animeId}`);
-    dispatch(cancelReservation(animeId));
+    dispatch(cancelReservation(id));
   };
 
   return (
@@ -51,21 +52,21 @@ const MyAnimes = () => {
         <p>Loading...</p>
       ) : (
         <>
-          {reservedAnimes.length > 0 ? (
+          {Object.keys(reservedAnimes).length > 0 ? (
             <table>
               <tbody>
-                {reservedAnimes.map((anime) => (
-                  <tr key={anime?.mal_id}>
+                {reservedAnimeIds.map((animeId) => (
+                  <tr key={animeId}>
                     <td>
-                      <Link to={`/anime/${anime.mal_id}`}>
-                        {anime?.title || 'Unknown Title'}
+                      <Link to={`/anime/${reservedAnimes[animeId]?.mal_id}`}>
+                        {reservedAnimes[animeId]?.title || 'Unknown Title'}
                       </Link>
                     </td>
                     <td>
                       <button
                         type="button"
                         className="anime-cancel-btn"
-                        onClick={() => handleCancelReservation(anime?.mal_id)}
+                        onClick={() => handleCancelReservation(animeId)}
                       >
                         Remove from List
                       </button>
