@@ -46,3 +46,34 @@ h1 {
     outline: none;
     box-shadow: 0 0 0 3px #ff7f50;
 }
+
+@media screen and (max-width: 768px) {
+    .genre-list {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .menu-link {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .genre-list {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .menu-link {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}

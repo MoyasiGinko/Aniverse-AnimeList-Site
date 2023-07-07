@@ -27,12 +27,13 @@
 
 .menu-toggle {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: aliceblue;
+    color: #ff7f50;
 }
 
 .menu-icon {
@@ -94,6 +95,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 200px;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 999;
     flex-direction: column;
@@ -111,12 +113,18 @@
     transition: background-color 0.3s ease;
 }
 
+.navBar a:active,
+.navBar a:focus {
+    color: #ff7f50;
+}
+
 .navBar a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .active {
     font-weight: bold;
+    color: #ff7f50;
 }
 
 .overlay-open {
@@ -131,7 +139,50 @@
     margin-right: -10px;
 }
 
-.active {
-    text-decoration: underline;
-    color: aqua;
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .navBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .navBar.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .navBar a {
+        font-size: 18px;
+        margin: 10px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 999;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .logoDiv {
+        font-size: 18px;
+    }
 }
