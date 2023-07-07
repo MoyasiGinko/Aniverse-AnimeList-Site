@@ -146,7 +146,7 @@
 }
 
 .card:hover .card-content {
-  transform: rotateY(180deg);
+  transform: rotateY(10deg);
 }
 
 .card-content::before {
@@ -162,5 +162,5 @@
 }
 
 .card:hover .card-content::before {
-  opacity: 1;
+  opacity: 0.1;
 }
