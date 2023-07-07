@@ -44,7 +44,7 @@ const MyAnimes = () => {
 
   return (
     <div id="myprofile-animes">
-      <h2>My Anime List</h2>
+      <h2>Anime List</h2>
       {status === 'loading' ? (
         <p>Loading...</p>
       ) : (
