@@ -55,4 +55,51 @@ describe('GenrePage component', () => {
     );
     expect(genreName).toBeInTheDocument();
   });
+
+  it('renders the list of anime titles correctly', () => {
+    // Define sample genre data
+    const genreData = [
+      { mal_id: 1, name: 'Action' },
+      { mal_id: 2, name: 'Comedy' },
+    ];
+
+    // Define sample anime data
+    const animeData = [
+      {
+        mal_id: 1,
+        title: 'Anime 1',
+        genres: [{ mal_id: 1, name: 'Action' }],
+      },
+      {
+        mal_id: 2,
+        title: 'Anime 2',
+        genres: [{ mal_id: 2, name: 'Comedy' }],
+      },
+    ];
+
+    // Create a mock Redux store with the desired state
+    const store = mockStore({
+      genrespage: {
+        genreData,
+        animeData,
+        isLoading: false,
+      },
+    });
+
+    // Render the component with the mock store and router context
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/genre/1']}>
+          <Routes>
+            <Route path="/genre/:genreId" element={<GenrePage />} />
+          </Routes>
+        </MemoryRouter>
+      </Provider>
+    );
+
+    // Assert that the list of anime titles is rendered correctly
+    const animeTitles = screen.getAllByText('Anime 1');
+    expect(animeTitles.length).toBe(1);
+    expect(animeTitles[0]).toBeInTheDocument();
+  });
 });
