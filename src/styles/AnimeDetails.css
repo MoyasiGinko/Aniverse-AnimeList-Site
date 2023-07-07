@@ -52,3 +52,58 @@
     color: red;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .anime-details-page .anime-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .anime-details-page .details {
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .anime-details-page .anime-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .anime-details-page .details {
+        width: 100%;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    .anime-details-page h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .anime-details-page .details h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .anime-details-page .details p {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .anime-details-page .details ul li {
+        margin-bottom: 4px;
+    }
+
+    .anime-details-page .loading-message {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .anime-details-page .error-message {
+        margin-top: 10px;
+    }
+}

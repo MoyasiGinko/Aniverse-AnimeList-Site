@@ -111,3 +111,84 @@
 .next-button:disabled:hover {
     background-color: #b6b7b8;
 }
+
+@media screen and (max-width: 768px) {
+    .all-animes {
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+
+    .anime-card2 {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .animeImage {
+        height: 200px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .anime-content {
+        padding: 10px;
+    }
+
+    .anime-title {
+        padding: 0 10px;
+    }
+
+    .anime-title h2 {
+        font-size: 16px;
+    }
+
+    .anime-description p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .all-animes {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .anime-card2 {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .animeImage {
+        height: 150px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .anime-content {
+        padding: 10px;
+    }
+
+    .anime-title h2 {
+        font-size: 14px;
+    }
+
+    .anime-description p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .anime-cancel-btn,
+    .anime-reserve-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .pagination-buttons {
+        height: auto;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .pagination-buttons button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
