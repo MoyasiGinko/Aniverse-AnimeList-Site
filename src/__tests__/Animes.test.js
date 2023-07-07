@@ -37,7 +37,7 @@ describe('Animes component', () => {
         <BrowserRouter>
           <Animes />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
 
     const animeNameElement = screen.getByText('Anime 1');
@@ -57,6 +57,21 @@ describe('Animes component', () => {
 
     const cancelReserveButton = screen.getByTestId('cancel-reservation-button');
     fireEvent.click(cancelReserveButton);
+
+    expect(dispatchSpy).toHaveBeenCalled();
+    expect(dispatchSpy).toHaveBeenCalledWith(expect.any(Function));
+  });
+  it('dispatches Reservation action when Reservation button is clicked', () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Animes />
+        </BrowserRouter>
+      </Provider>,
+    );
+
+    const reserveAnime = screen.getByText('Add to List');
+    fireEvent.click(reserveAnime);
 
     expect(dispatchSpy).toHaveBeenCalled();
     expect(dispatchSpy).toHaveBeenCalledWith(expect.any(Function));
