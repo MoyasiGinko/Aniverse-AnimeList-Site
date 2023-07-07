@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AnimeSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +13,7 @@ const AnimeSearchPage = () => {
     }
 
     const url = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
-      searchQuery,
+      searchQuery
     )}`;
 
     try {
@@ -48,7 +49,7 @@ const AnimeSearchPage = () => {
   };
 
   return (
-    <div>
+    <div className="anime-search-page">
       <h2>Anime Search</h2>
       <div>
         <input
@@ -62,13 +63,15 @@ const AnimeSearchPage = () => {
           Search
         </button>
       </div>
-      <div>
+      <div className="search-results">
         {searchQuery.trim() !== '' && searchResults.length > 0 ? (
-          <ul>
+          <ul className="anime-list">
             {searchResults.map((anime) => (
               <li key={anime.mal_id}>
-                <h3>{anime.title}</h3>
                 <img src={anime.images?.jpg?.image_url} alt={anime.title} />
+                <h3 key={anime.mal_id}>
+                  <Link to={`/anime/${anime.mal_id}`}>{anime.title}</Link>
+                </h3>
                 {/* Render additional anime details as needed */}
               </li>
             ))}
