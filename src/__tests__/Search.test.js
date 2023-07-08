@@ -1,9 +1,20 @@
+// Import necessary dependencies
 import React from 'react';
 import {
   render, screen, fireEvent, waitFor,
 } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import AnimeSearchPage from '../components/SearchPage';
+import server from '../mocks'; // Import the server from mocks.js
+
+beforeAll(() => server.listen());
+
+afterEach(() => {
+  server.resetHandlers();
+  jest.clearAllMocks();
+});
+
+afterAll(() => server.close());
 
 describe('AnimeSearchPage component', () => {
   it('should show search results when the search button is clicked', async () => {
@@ -24,6 +35,4 @@ describe('AnimeSearchPage component', () => {
       expect(searchResults).toBeInTheDocument();
     });
   });
-
-  // Add more test cases as needed
 });
