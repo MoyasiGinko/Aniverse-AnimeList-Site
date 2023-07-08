@@ -6,7 +6,7 @@
 }
 
 #myprofile-animes {
-  width: 600px;
+  max-width: 600px;
   background-color: #f5f5f5;
   padding: 20px;
   margin-top: 20px;
@@ -56,4 +56,14 @@
 
 #myprofile-animes a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  #myprofile-animes {
+    max-width: 100%;
+  }
+
+  #myprofile-animes table td:first-child {
+    width: 50%;
+  }
 }
