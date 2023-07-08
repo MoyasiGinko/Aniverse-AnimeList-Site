@@ -24,8 +24,7 @@ const AnimeDetailsPage = () => {
     return (
       <div className="anime-details-page">
         <div className="error-message">
-          Error loading anime details:
-          {error}
+          Error loading anime details: {error}
         </div>
       </div>
     );
@@ -63,26 +62,30 @@ const AnimeDetailsPage = () => {
         <p>{synopsis}</p>
         <div>
           <h2>Details</h2>
-          <p>
-            Episodes:
-            {episodes}
-          </p>
-          <p>
-            Aired:
-            {aired.string}
-          </p>
-          <p>
-            Rating:
-            {rating}
-          </p>
-          <p>
-            Score:
-            {score}
-          </p>
-          <p>
-            Popularity:
-            {popularity}
-          </p>
+          <table>
+            <tbody>
+              <tr>
+                <th>Episodes:</th>
+                <td>{episodes}</td>
+              </tr>
+              <tr>
+                <th>Aired:</th>
+                <td>{aired.string}</td>
+              </tr>
+              <tr>
+                <th>Rating:</th>
+                <td>{rating}</td>
+              </tr>
+              <tr>
+                <th>Score:</th>
+                <td>{score}</td>
+              </tr>
+              <tr>
+                <th>Popularity:</th>
+                <td>{popularity}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div>
           <h2>Genres</h2>
