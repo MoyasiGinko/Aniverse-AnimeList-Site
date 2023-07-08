@@ -24,7 +24,9 @@ const AnimeDetailsPage = () => {
     return (
       <div className="anime-details-page">
         <div className="error-message">
-          Error loading anime details: {error}
+          Error loading anime details:
+          {' '}
+          {error}
         </div>
       </div>
     );
