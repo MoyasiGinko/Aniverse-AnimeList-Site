@@ -1,0 +1,68 @@
+@import './styles/NavBar.css';
+@import './styles/Home.css';
+@import './styles/Anime.css';
+@import './styles/Genre.css';
+@import './styles/GenrePage.css';
+@import './styles/Details.css';
+@import './styles/AnimeDetails.css';
+@import './styles/Search.css';
+@import './styles/Profile.css';
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: black;
+  background-color: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #00254e;
+}
+
+.devider {
+  background-color: #eaeaea;
+  width: 96%;
+  height: 1.5px;
+  margin: auto;
+}
+
+.loading {
+  font-size: 70px;
+  margin: 13% 30% 0 40%;
+  font-family: 'Shantell Sans', cursive;
+  color: skyblue;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
