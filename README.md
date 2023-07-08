@@ -79,6 +79,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Preview](https://moyasiginko-aniverse.netlify.app/)
+- [Project Overview](https://www.loom.com/share/2e7d691f881744bab849be3ebe232223)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
