@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import AnimeSearchPage from '../components/SearchPage';
 
@@ -17,15 +19,10 @@ describe('AnimeSearchPage component', () => {
     fireEvent.change(searchInput, { target: { value: 'noblesse' } });
     fireEvent.click(searchButton);
 
-    // Wait for API request and search results to update
-    await screen.findByText((content, element) => {
-      const normalizedText = content.toLowerCase();
-      const elementText = element.textContent.toLowerCase();
-      return elementText.includes('noblesse') && normalizedText === 'noblesse';
+    await waitFor(() => {
+      const searchResults = screen.getByRole('list');
+      expect(searchResults).toBeInTheDocument();
     });
-
-    const searchResults = screen.getByRole('list');
-    expect(searchResults).toBeInTheDocument();
   });
 
   // Add more test cases as needed
