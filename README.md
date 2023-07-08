@@ -167,6 +167,8 @@ If you like this project, don't forget to give it a star on GitHub! Your support
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+At first, I would like to thank Nelson Sakwa on Behance for the [Original design idea.](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
+
 We would like to express our sincere gratitude to MyAnimeList (MAL) for providing us with access to their comprehensive anime API. Their API has been instrumental in powering our application, allowing us to retrieve and display anime information, details, and much more. The extensive collection of data available through the MAL API has greatly enriched the user experience of our app and enabled us to deliver a robust platform for anime enthusiasts.
 
 We are thankful for the efforts and dedication of the MyAnimeList team in maintaining and providing access to this valuable resource. Their commitment to supporting the anime community and sharing anime-related data has been invaluable to our project's success.
